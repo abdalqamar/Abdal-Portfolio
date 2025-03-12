@@ -7,7 +7,7 @@ import Projects from './components/Projects'
 import TestimonialSlider from './components/TestimonialSlider'
 import Footer from './components/Footer'
 import Contact from './components/Contact'
-import WhatIDo from './components/WhatIdo'
+import WhatIDo from './components/WhatIDo'
 
 
 
