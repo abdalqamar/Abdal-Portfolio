@@ -17,11 +17,11 @@ const Projects = () => {
       github: "https://github.com/rohitsingh93300/portfolio"
     },
     {
-      title: 'Spicy Bites',
+      title: 'Virtual R Sage',
       desc: 'The team at Webelite Builders exceeded our expectations with their digital marketing expertise. Highly recommend!',
       image: VirtualR,
-      live: "#",
-      github: "https://github.com/rohitsingh93300/YtSpicyBites"
+      live: "https://virtualr-sage-two.vercel.app/",
+      github: "https://github.com/abdalqamar/Virtual-Project"
     },
 
     {

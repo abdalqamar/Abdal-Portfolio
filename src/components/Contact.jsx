@@ -14,33 +14,51 @@ const Contact = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
 
+    const formData = new FormData(event.target);
+    const name = formData.get('name')?.trim();
+    const email = formData.get('email')?.trim();
+
+    if (!name || !email) {
+      toast.error('All fields are required!');
+      return;
+    }
+
     formData.append('access_key', 'ef22ba34-a6a3-4bea-be88-5eb492186289');
 
-    const promise = fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(async (response) => {
+    
+    const promise = new Promise(async (resolve, reject) => {
+      try {
+        await new Promise((res) => setTimeout(res, 1000));
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData,
+        });
+
         const data = await response.json();
 
         if (data.success) {
           setResult('Form submitted successfully!');
           setTimeout(() => setResult(''), 2000);
           event.target.reset();
-          return data.message;
+          resolve(data.message);
         } else {
           setResult(data.message);
           setTimeout(() => setResult(''), 2000);
-          throw new Error(data.message);
+          reject(new Error(data.message));
         }
-      });
+      } catch (error) {
+        reject(error);
+      }
+    });
 
     toast.promise(promise, {
-      loading: 'Submitting...',
+      loading: 'Submitting...', 
       success: 'Form submitted successfully!',
       error: (err) => err.message || 'Form submission failed!',
     });
   };
+
 
 
   return (
@@ -102,13 +120,11 @@ const Contact = () => {
                   type="text"
                   name="name"
                   placeholder="Your Full Name"
-                  required
                   className="mb-4 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                 />
                 <input
                   type="email"
                   name="email"
-                  required
                   placeholder="Your Email Address"
                   className="mb-4 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
                 />
@@ -116,13 +132,11 @@ const Contact = () => {
               <input
                 type="text"
                 name="subject"
-                required
                 placeholder="Your Subject"
                 className="mb-4 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               />
               <textarea
                 name="message"
-                required
                 placeholder="Your Message"
                 rows="4"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
