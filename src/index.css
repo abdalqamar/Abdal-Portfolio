@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+
+/* Apply smooth scrolling to the entire document */
+html {
+  scroll-behavior: smooth;
+}
+
+
+@theme {
+  --font-primry: "Outfit", serif;
+  --font-ovo: "Ovo", serif;
+  --font-popins: "Poppins", serif;
+
+}
+
