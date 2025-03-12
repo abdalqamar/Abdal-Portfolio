@@ -7,14 +7,14 @@ import { motion } from "framer-motion";
 const WhatIDo = () => {
   const services = [
     {
-      title: "Web Design",
-      description: "Creating visually appealing and user-friendly website designs.",
-      icon: webDesign,
-    },
-    {
       title: "Web Development",
       description: "Building responsive and dynamic websites with modern tech.",
       icon: webDevelop,
+    },
+    {
+      title: "Web Design",
+      description: "Creating visually appealing and user-friendly website designs.",
+      icon: webDesign,
     },
     {
       title: "App Development",

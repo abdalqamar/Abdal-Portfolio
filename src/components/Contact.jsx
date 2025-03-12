@@ -81,17 +81,7 @@ const Contact = () => {
                 <p className="text-gray-500">Bokaro, Jharkhand, India</p>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gray-200 rounded-full">
-                <span className="text-gray-700"><FaLaptopCode fontSize={"25"} /></span>
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg text-gray-700">
-                  Freelance
-                </h4>
-                <p className="text-gray-500">Available Right Now</p>
-              </div>
-            </div>
+ 
             <div className="flex items-center space-x-4">
               <div className="p-3 bg-gray-200 rounded-full">
                 <span className="text-gray-700"><HiOutlineMail className="text-2xl" /></span>

@@ -14,7 +14,7 @@ const Projects = () => {
       desc: 'Webelite Builders did an amazing job on our website. Their professionalism and dedication to our project were outstanding.',
       image: Portfolio,
       live: "#",
-      github: "https://github.com/rohitsingh93300/portfolio"
+      github: "https://github.com/abdalqamar/"
     },
     {
       title: 'Virtual R Sage',

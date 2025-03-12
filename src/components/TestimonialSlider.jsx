@@ -5,8 +5,8 @@ import { Pagination, Autoplay } from 'swiper/modules';
 
 const TestimonialSlider = ({ testimonials }) => {
   return (
-    <div className="w-full max-w-8/12 mx-auto p-6">
-      <h2 className="text-2xl font-bold text-center mb-6">What People Are Saying?</h2>
+    <div className="w-full md:w-10/12 lg:w-5xl  mx-auto p-3.5">
+      <h2 className="text-2xl font-bold text-center mb-2.5 ">What People Are Saying?</h2>
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={20}
@@ -21,7 +21,7 @@ const TestimonialSlider = ({ testimonials }) => {
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index} className="bg-white shadow-lg rounded-xl p-5 border border-gray-200 text-center 
-              flex flex-col  justify-between items-center gap-3 min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] ">
+              flex flex-col  justify-between items-center gap-3   ">
             <img
               src={testimonial.image}
               alt={testimonial.name}
