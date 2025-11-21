@@ -1,8 +1,7 @@
 import React from "react";
-import webDevelop from '../assets/web-development.png'
-import webDesign from '../assets/web-design.png'
+import webDevelop from "../assets/web-development.png";
+import webDesign from "../assets/web-design.png";
 import { motion } from "framer-motion";
-
 
 const WhatIDo = () => {
   const services = [
@@ -13,18 +12,18 @@ const WhatIDo = () => {
     },
     {
       title: "Web Design",
-      description: "Creating visually appealing and user-friendly website designs.",
+      description:
+        "Creating visually appealing and user-friendly website designs.",
       icon: webDesign,
     },
     {
       title: "App Development",
-      description: "Developing mobile applications with seamless user experience.",
+      description:
+        "Developing mobile applications with seamless user experience.",
       icon: webDevelop,
     },
   ];
   return (
-
-
     <section id="services" className="py-12 ">
       <div className="max-w-5xl mx-auto text-center px-4">
         <h2 className="text-3xl font-bold text-gray-500 flex items-center justify-center gap-2">
@@ -51,10 +50,7 @@ const WhatIDo = () => {
         ))}
       </div>
     </section>
-
-
-  )
+  );
 };
 
 export default WhatIDo;
-
