@@ -1,38 +1,50 @@
-import { Link } from "react-router-dom";
+import { FOOTER_LINKS } from "../data/portfolioData";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-6 mt-10 border-t border-gray-300">
-      <div className="container mx-auto px-4 text-center">
-        {/* Footer Links */}
-        <div className="flex justify-center gap-6 mb-4 text-gray-700 flex-wrap">
-          <Link to="/services" className="hover:text-blue-600 transition">
-            Services
-          </Link>
-
-          <Link to="/terms" className="hover:text-blue-600 transition">
-            Terms & Conditions
-          </Link>
-
-          <Link to="/privacy" className="hover:text-blue-600 transition">
-            Privacy Policy
-          </Link>
-
-          <Link to="/refund" className="hover:text-blue-600 transition">
-            Refund & Cancellation
-          </Link>
-
-          <Link to="/contact" className="hover:text-blue-600 transition">
-            Contact Us
-          </Link>
-        </div>
-
-        <p className="text-gray-600">
-          &copy; 2025 Abdal Qamar. All rights reserved.
-        </p>
+    <footer
+      style={{
+        background: "var(--bg)",
+        borderTop: "1px solid var(--border)",
+        padding: "1.6rem clamp(1.2rem,6vw,4rem)",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: "0.8rem",
+        transition: "background 0.4s",
+      }}
+    >
+      <p
+        style={{
+          fontFamily: "'Space Mono',monospace",
+          fontSize: "0.68rem",
+          color: "var(--muted)",
+        }}
+      >
+        © 2026 Abdal Qamar · Designed &amp; Built with ❤️
+      </p>
+      <div style={{ display: "flex", gap: "1.2rem" }}>
+        {FOOTER_LINKS.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              fontFamily: "'Space Mono',monospace",
+              fontSize: "0.68rem",
+              color: "var(--muted)",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+          >
+            {label}
+          </a>
+        ))}
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Syne", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background 0.4s,
+    color 0.4s;
+}
+
+::selection {
+  background: rgba(110, 84, 247, 0.28);
+  color: var(--text);
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes grad-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes thumb-pop {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ── Fade-up scroll animation ────────────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up.d1 {
+  transition-delay: 0.1s;
+}
+.fade-up.d2 {
+  transition-delay: 0.2s;
+}
+.fade-up.d3 {
+  transition-delay: 0.3s;
+}
+.fade-up.d4 {
+  transition-delay: 0.4s;
+}
+.fade-up.d5 {
+  transition-delay: 0.5s;
+}
+
+/* ── Grid background ─────────────────────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--grid-ln) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-ln) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Responsive nav ──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+}
+@media (min-width: 641px) {
+  .hamburger {
+    display: none !important;
+  }
+}
