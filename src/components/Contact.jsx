@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { Mail, Globe } from "lucide-react";
+import { Mail, Globe, Rocket } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 // EmailJS Config
@@ -147,9 +147,13 @@ export default function Contact() {
               fontSize: "1.2rem",
               fontWeight: 700,
               marginBottom: "0.7rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px", // spacing between text & icon
             }}
           >
-            Ready for opportunities! 🚀
+            Ready for opportunities!
+            <Rocket size={18} />
           </h3>
           <p
             style={{

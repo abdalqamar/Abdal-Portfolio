@@ -6,6 +6,7 @@ import {
   BtnSec,
 } from "./Shared";
 import { PROJECTS } from "../data/portfolioData";
+import Tilt from "react-parallax-tilt";
 
 export default function Projects() {
   const [ref, visible] = useInView();
@@ -29,12 +30,19 @@ export default function Projects() {
       </div>
 
       {PROJECTS.map((project, i) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          delay={`d${i + 1}`}
-          visible={visible}
-        />
+        <Tilt
+          tiltMaxAngleX={8}
+          tiltMaxAngleY={8}
+          glareEnable={true}
+          glareMaxOpacity={0.1}
+        >
+          <ProjectCard
+            key={project.id}
+            project={project}
+            delay={`d${i + 1}`}
+            visible={visible}
+          />
+        </Tilt>
       ))}
 
       {/* More projects teaser */}

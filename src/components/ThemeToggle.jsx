@@ -49,7 +49,6 @@ export default function ThemeToggle() {
 
       {/* Sliding thumb */}
       <span
-        key={dark ? "dark" : "light"}
         style={{
           width: "20px",
           height: "20px",
@@ -58,11 +57,10 @@ export default function ThemeToggle() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "11px",
-          transform: dark ? "translateX(0)" : "translateX(24px)",
+          transform: dark ? "translateX(0px)" : "translateX(24px)",
           transition: "transform 0.35s cubic-bezier(.34,1.56,.64,1)",
           boxShadow: "0 1px 6px rgba(0,0,0,0.25)",
-          animation: "thumb-pop 0.25s ease",
+          willChange: "transform",
         }}
       >
         {dark ? <Moon size={14} /> : <Sun size={14} />}

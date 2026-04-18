@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
 import { BtnPri, BtnSec } from "./Shared";
-
+import { useState, useEffect } from "react";
+import ResumeButton from "./Resumebutton"; // ← NEW
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  const cls = (delay = "") => `fade-up${mounted ? " visible" : ""} ${delay}`;
+  const cls = (d = "") => `fade-up${mounted ? " visible" : ""} ${d}`;
 
   return (
     <section
@@ -18,7 +19,7 @@ export default function Hero() {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        padding: "6rem clamp(1.2rem,6vw,4rem) 4rem",
+        padding: "6rem clamp(1.2rem, 6vw, 4rem) 4rem",
         position: "relative",
         overflow: "hidden",
       }}
@@ -179,7 +180,7 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Buttons */}
+        {/* ── Buttons — now includes Resume Download ── */}
         <div
           className={cls("d5")}
           style={{
@@ -191,6 +192,13 @@ export default function Hero() {
         >
           <BtnPri href="#projects">View My Project ↓</BtnPri>
           <BtnSec href="https://www.studyhubedu.online/">↗ Live Project</BtnSec>
+
+          {/* Resume button */}
+          <div
+            onClick={() => trackEvent("resume_download", { location: "hero" })}
+          >
+            <ResumeButton variant="ghost" />
+          </div>
         </div>
 
         {/* Stats */}

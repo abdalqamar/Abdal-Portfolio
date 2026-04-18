@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 //  Theme tokens
-
 export const DARK = {
   "--bg": "#07070e",
   "--bg2": "#0d0d1a",
@@ -61,11 +60,13 @@ export const LIGHT = {
 };
 
 //  Context
-
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved ? JSON.parse(saved) : true; // default true (dark)
+  });
 
   // Apply CSS variables
   useEffect(() => {
@@ -73,6 +74,8 @@ export function ThemeProvider({ children }) {
     Object.entries(tokens).forEach(([k, v]) =>
       document.documentElement.style.setProperty(k, v),
     );
+    // save to localStorage
+    localStorage.setItem("theme", JSON.stringify(dark));
   }, [dark]);
 
   return (
