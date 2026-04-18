@@ -1,4 +1,4 @@
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider } from "./context/themeContext";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./styles/global.css";
 
-const App = () => {
+export default function App() {
   return (
     <ThemeProvider>
       <Nav />
@@ -22,5 +22,4 @@ const App = () => {
       <Footer />
     </ThemeProvider>
   );
-};
-export default App;
+}
